@@ -31,7 +31,7 @@ In just a few simple steps below, you can build and deploy the microservices to 
 
 Clone this github repository to your local workstation:
 ```
-git clone https://github.com/kpostreich/m2m-ws-sample
+git clone https://github.com/IBMTechSales/m2m-ws-sample
 ```
 Change directory to the refactored microservices source code:
 ```
