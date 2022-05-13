@@ -27,6 +27,7 @@ COPY --from=build --chown=1001:0 /app/DefaultApplication-ear/src/main/liberty/co
 ENV APPLICATION_PARTITION0_REST_URL=http://defaultapp-partition0:9080/rest/
 
 USER root
+RUN dnf remove -y subscription-manager python3-subscription-manager-rhsm dnf-plugin-subscription-manager
 RUN yum update --disableplugin=subscription-manager -y && rm -rf /var/cache/yum
 RUN yum install --disableplugin=subscription-manager curl -y && rm -rf /var/cache/yum
 RUN chmod -R 777 /liberty/usr/shared/resources/ 
