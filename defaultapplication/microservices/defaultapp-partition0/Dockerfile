@@ -28,6 +28,7 @@ COPY --from=build --chown=1001:0 /app/DefaultApplication-ear/target/liberty/wlp/
 COPY --from=build --chown=1001:0 /app/DefaultApplication-ear/src/main/resources/DefaultDB.zip /liberty/usr/servers/defaultServer/resources/
 
 USER root
+RUN dnf remove -y subscription-manager python3-subscription-manager-rhsm dnf-plugin-subscription-manager
 RUN yum update --disableplugin=subscription-manager -y && rm -rf /var/cache/yum
 RUN yum install --disableplugin=subscription-manager unzip -y && rm -rf /var/cache/yum
 RUN mkdir -p /liberty/usr/servers/defaultServer/resources/
